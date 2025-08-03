@@ -66,8 +66,9 @@ const ServicesPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-2 sm:px-4 py-4 sm:py-8">
-      <div className="max-w-6xl mx-auto space-y-6 sm:space-y-12">
+    <>
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-2 sm:px-4 py-4 sm:py-8">
+        <div className="max-w-6xl mx-auto space-y-6 sm:space-y-12">
         <div className="text-center">
           <Logo size="medium" />
         </div>
@@ -146,55 +147,56 @@ const ServicesPage: React.FC = () => {
             ))}
           </div>
         </div>
-
-        {/* Modal for obituary details */}
-        {selectedObituary && (
-          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-            <div className="bg-slate-800 border border-yellow-600/30 rounded-2xl p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto">
-              <div className="flex justify-between items-start mb-6">
-                <div className="flex items-center space-x-4">
-                  <img
-                    src={selectedObituary.image}
-                    alt={selectedObituary.name}
-                    className="w-20 h-20 rounded-full object-cover border-2 border-yellow-600/50"
-                  />
-                  <h2 className="text-2xl font-bold text-yellow-300">{selectedObituary.name}</h2>
-                </div>
-                <button
-                  onClick={() => setSelectedObituary(null)}
-                  className="text-slate-400 hover:text-yellow-300 transition-colors"
-                >
-                  <X size={24} />
-                </button>
+      </div>
+      </div>
+      
+      {/* Modal for obituary details - moved outside main container */}
+      {selectedObituary && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-[9999]">
+          <div className="bg-slate-800 border border-yellow-600/30 rounded-2xl p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+            <div className="flex justify-between items-start mb-6">
+              <div className="flex items-center space-x-4">
+                <img
+                  src={selectedObituary.image}
+                  alt={selectedObituary.name}
+                  className="w-20 h-20 rounded-full object-cover border-2 border-yellow-600/50"
+                />
+                <h2 className="text-2xl font-bold text-yellow-300">{selectedObituary.name}</h2>
               </div>
+              <button
+                onClick={() => setSelectedObituary(null)}
+                className="text-slate-400 hover:text-yellow-300 transition-colors"
+              >
+                <X size={24} />
+              </button>
+            </div>
+            
+            <div className="space-y-4 text-slate-300">
+              <div className="flex items-center space-x-2">
+                <Calendar size={16} />
+                <span>{selectedObituary.birthDate} - {selectedObituary.deathDate}</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <MapPin size={16} />
+                <span>{selectedObituary.location}</span>
+              </div>
+              <p className="text-sm text-slate-400">Objavljeno: {selectedObituary.publishDate}</p>
               
-              <div className="space-y-4 text-slate-300">
-                <div className="flex items-center space-x-2">
-                  <Calendar size={16} />
-                  <span>{selectedObituary.birthDate} - {selectedObituary.deathDate}</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <MapPin size={16} />
-                  <span>{selectedObituary.location}</span>
-                </div>
-                <p className="text-sm text-slate-400">Objavljeno: {selectedObituary.publishDate}</p>
-                
-                <div className="mt-6 p-4 bg-slate-700/50 rounded-lg">
-                  <p className="text-slate-300 leading-relaxed">
-                    Sa velikim tugom obaveštavamo rodbinu, prijatelje i poznanike da je {selectedObituary.deathDate} godine, 
-                    u {selectedObituary.location}, preminuo/la naš/a dragi/a {selectedObituary.name}.
-                    <br /><br />
-                    Sahrana će se obaviti u skladu sa poslednjom voljom pokojnog/e.
-                    <br /><br />
-                    Neka mu/joj je večna slava i hvala.
-                  </p>
-                </div>
+              <div className="mt-6 p-4 bg-slate-700/50 rounded-lg">
+                <p className="text-slate-300 leading-relaxed">
+                  Sa velikim tugom obaveštavamo rodbinu, prijatelje i poznanike da je {selectedObituary.deathDate} godine, 
+                  u {selectedObituary.location}, preminuo/la naš/a dragi/a {selectedObituary.name}.
+                  <br /><br />
+                  Sahrana će se obaviti u skladu sa poslednjom voljom pokojnog/e.
+                  <br /><br />
+                  Neka mu/joj je večna slava i hvala.
+                </p>
               </div>
             </div>
           </div>
-        )}
-      </div>
-    </div>
+        </div>
+      )}
+    </>
   );
 };
 
