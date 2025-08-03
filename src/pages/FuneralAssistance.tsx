@@ -79,7 +79,10 @@ const FuneralAssistance: React.FC = () => {
             return (
               <div
                 key={category.id}
-                onClick={() => navigate(`/category/${category.id}`)}
+                onClick={() => {
+                  navigate(`/category/${category.id}`);
+                  window.scrollTo(0, 0);
+                }}
                 className="bg-slate-800/60 backdrop-blur-sm border border-yellow-600/30 rounded-2xl p-4 sm:p-6 shadow-2xl hover:bg-slate-700/60 transition-all duration-300 cursor-pointer"
               >
                 <div className="text-center space-y-3 sm:space-y-4">
@@ -103,6 +106,7 @@ const FuneralAssistance: React.FC = () => {
                     onClick={(e) => {
                       e.stopPropagation();
                       navigate(`/category/${category.id}`);
+                      window.scrollTo(0, 0);
                     }}
                     className="w-full bg-gradient-to-r from-yellow-600 to-yellow-500 hover:from-yellow-500 hover:to-yellow-400 text-slate-900 font-bold py-2.5 sm:py-3 px-4 sm:px-6 rounded-xl text-xs sm:text-sm shadow-lg transform hover:scale-105 transition-all duration-200"
                   >

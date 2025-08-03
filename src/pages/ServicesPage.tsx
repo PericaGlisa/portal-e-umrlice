@@ -29,7 +29,7 @@ const ServicesPage: React.FC = () => {
       title: 'POMOĆ ZA SAHRANU',
       icon: HelpCircle,
       description: 'Pronađi pogrebne usluge u tvom gradu',
-      path: '/assistance'
+      path: '/funeral-assistance'
     }
   ];
 
@@ -75,7 +75,10 @@ const ServicesPage: React.FC = () => {
             return (
               <button
                 key={service.id}
-                onClick={() => navigate(service.path)}
+                onClick={() => {
+                  navigate(service.path);
+                  window.scrollTo(0, 0);
+                }}
                 className="group bg-slate-800/60 backdrop-blur-sm hover:bg-slate-700/60 border border-yellow-600/30 hover:border-yellow-500/50 rounded-2xl p-4 sm:p-8 text-center transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
               >
                 <div className="flex flex-col items-center space-y-3 sm:space-y-4">

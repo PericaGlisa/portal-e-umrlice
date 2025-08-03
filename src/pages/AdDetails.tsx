@@ -129,7 +129,10 @@ const AdDetails: React.FC = () => {
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="flex items-center space-x-4">
             <button
-              onClick={() => navigate(`/category/${categoryId}`)}
+              onClick={() => {
+                navigate(`/category/${categoryId}`);
+                window.scrollTo(0, 0);
+              }}
               className="text-yellow-300 hover:text-yellow-400 transition-colors"
             >
               <ArrowLeft size={24} />
@@ -149,7 +152,10 @@ const AdDetails: React.FC = () => {
       <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
         <div className="flex items-center space-x-3 sm:space-x-4">
           <button
-            onClick={() => navigate(`/category/${categoryId}`)}
+            onClick={() => {
+              navigate(`/category/${categoryId}`);
+              window.scrollTo(0, 0);
+            }}
             className="text-yellow-300 hover:text-yellow-400 transition-colors flex-shrink-0"
           >
             <ArrowLeft size={20} className="sm:w-6 sm:h-6" />

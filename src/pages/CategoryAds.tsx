@@ -127,7 +127,10 @@ const CategoryAds: React.FC = () => {
       <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8">
         <div className="flex items-center space-x-3 sm:space-x-4">
           <button
-            onClick={() => navigate('/funeral-assistance')}
+            onClick={() => {
+              navigate('/funeral-assistance');
+              window.scrollTo(0, 0);
+            }}
             className="text-yellow-300 hover:text-yellow-400 transition-colors flex-shrink-0"
           >
             <ArrowLeft size={20} className="sm:w-6 sm:h-6" />
@@ -146,7 +149,10 @@ const CategoryAds: React.FC = () => {
             {ads.map((ad) => (
               <div
                 key={ad.id}
-                onClick={() => navigate(`/category/${categoryId}/ad/${ad.id}`)}
+                onClick={() => {
+                  navigate(`/category/${categoryId}/ad/${ad.id}`);
+                  window.scrollTo(0, 0);
+                }}
                 className="bg-slate-800/60 backdrop-blur-sm border border-yellow-600/30 rounded-2xl p-4 sm:p-6 shadow-2xl hover:bg-slate-700/60 transition-all duration-300 cursor-pointer"
               >
                 <div className="space-y-3 sm:space-y-4">
