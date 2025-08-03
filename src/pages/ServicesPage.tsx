@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { FileText, Heart, HelpCircle, Calendar, MapPin, X } from 'lucide-react';
-import Logo from '../components/Logo';
 
 const ServicesPage: React.FC = () => {
   const navigate = useNavigate();
@@ -69,12 +68,6 @@ const ServicesPage: React.FC = () => {
     <>
       <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-2 sm:px-4 py-4 sm:py-8">
         <div className="max-w-6xl mx-auto space-y-6 sm:space-y-12">
-        <div className="text-center">
-          <Logo size="medium" />
-        </div>
-
-
-
         {/* Main Service Buttons */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {services.map((service) => {

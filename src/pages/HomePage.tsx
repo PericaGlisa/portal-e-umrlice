@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Search, MapPin } from 'lucide-react';
-import Logo from '../components/Logo';
 
 const HomePage: React.FC = () => {
   const [searchLocation, setSearchLocation] = useState('');
@@ -21,10 +20,8 @@ const HomePage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden flex flex-col items-center justify-center px-2 sm:px-4 py-2 sm:py-4">
-      <div className="max-w-2xl w-full text-center space-y-4 sm:space-y-6">
-        <Logo size="large" />
-        
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-2 sm:px-4 py-20 sm:py-24">
+      <div className="max-w-2xl mx-auto text-center space-y-4 sm:space-y-6">
         <div className="bg-slate-800/60 backdrop-blur-sm rounded-2xl border border-yellow-600/30 p-4 sm:p-6 md:p-8 shadow-2xl">
           <div className="space-y-4 sm:space-y-6">
             <div className="relative">
